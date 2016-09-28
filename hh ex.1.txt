@@ -1,12 +1,5 @@
 <?php
-/*	Программа использует библиотеку для работы с большими числами bcmath.
- * 
- */
 
-
- /*
- * Функция возвращает остаток от деления любого числа на 10
- */
 function my_bcmod( $x )
 {
 	$take = 5;
@@ -20,10 +13,7 @@ function my_bcmod( $x )
 	while ( strlen($x) );
 	return (int)$mod;
 }
-/*
- * Функция возвращает перевернутое число 
- * любого количества знаков.
- * */
+
 function rotateNum( $num ){
 	$len = strlen($num);
 	for($i = 0; $i < $len; $i++){
@@ -33,10 +23,7 @@ function rotateNum( $num ){
 	}
 	return (string)$numRotate;
 }
-/*
- * Функция проверяет является ли число идеальным, 
- * если является возвращает true, иначе false.
- * */
+
 function compareNum( $num ){
 	$len = strlen($num);
 	for($i = 0; $i < $len; $i++){
@@ -58,9 +45,7 @@ function compareNum( $num ){
 	}
 	return $flagT;
 }
-/*
- * main body
- * */
+
 for($number = 1; $number < 12444; $number++){
 	(string)$num = $number;
 	for($f = 0; $f < 51; $f++){
