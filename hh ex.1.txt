@@ -1,0 +1,86 @@
+<?php
+/*	Программа использует библиотеку для работы с большими числами bcmath.
+ * 
+ */
+
+
+ /*
+ * Функция возвращает остаток от деления любого числа на 10
+ */
+function my_bcmod( $x )
+{
+	$take = 5;
+	$mod = '';
+	do
+	{
+		$a = (int)$mod.substr( $x, 0, $take );
+		$x = substr( $x, $take );
+		$mod = $a % 10;
+	}
+	while ( strlen($x) );
+	return (int)$mod;
+}
+/*
+ * Функция возвращает перевернутое число 
+ * любого количества знаков.
+ * */
+function rotateNum( $num ){
+	$len = strlen($num);
+	for($i = 0; $i < $len; $i++){
+		$residue = my_bcmod($num);
+		$num = bcdiv($num, 10);
+		(string)$numRotate = $numRotate . $residue;
+	}
+	return (string)$numRotate;
+}
+/*
+ * Функция проверяет является ли число идеальным, 
+ * если является возвращает true, иначе false.
+ * */
+function compareNum( $num ){
+	$len = strlen($num);
+	for($i = 0; $i < $len; $i++){
+		$residue = my_bcmod($num);
+		$num = bcdiv($num, 10);
+		$Array[$i] = $residue;
+	}
+	if($len%2 == 0){
+		$newLen = $len;
+	}else{
+		$newLen = $len-1;
+	}
+	for($j = 0; $j < ($newLen/2); $j++){
+		if($Array[$j] == $Array[$len - ($j+1)]){
+			$flagT = true;
+		}else{
+			return false;
+		}
+	}
+	return $flagT;
+}
+/*
+ * main body
+ * */
+for($number = 1; $number < 12444; $number++){
+	(string)$num = $number;
+	for($f = 0; $f < 51; $f++){
+		if(compareNum($num)){
+			//echo $number . " ";
+			//echo "true" ;
+			$amountT++;
+			$f = 50;
+			
+		}else{
+			$num = bcadd($num, rotateNum($num));
+			//echo $f . ' ' . $num . "\n";
+			
+			if($f == 50){
+				//echo $number . " false " . $num . "\n";
+				$amountN++;
+			}
+		}
+		
+	}	
+}
+echo "Complete.Not ideal numbers: " . $amountN;
+?>
