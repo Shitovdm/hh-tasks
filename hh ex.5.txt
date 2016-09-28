@@ -1,10 +1,5 @@
 <?php 
-/*	The diagonals are arranged in ascending order clockwise.
- * 	$zeroPoint - just a point from which it is convenient to count.
- * 	$diagonal - the current value in the maximum number of diagonal or external number.
- * 	$sum - the sum of all the diagonals.
- * 	
- */
+
 $rings = 1143;
 
 $zeroPoint1 = 0;
