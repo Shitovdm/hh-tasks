@@ -1,0 +1,44 @@
+<?php 
+/*	The diagonals are arranged in ascending order clockwise.
+ * 	$zeroPoint - just a point from which it is convenient to count.
+ * 	$diagonal - the current value in the maximum number of diagonal or external number.
+ * 	$sum - the sum of all the diagonals.
+ * 	
+ */
+$rings = 1143;
+
+$zeroPoint1 = 0;
+$zeroPoint2 = -6;
+$zeroPoint3 = -4;
+$zeroPoint4 = -2;
+
+$diagonal1 = 1;
+$diagonal2 = 1;
+$diagonal3 = 1;
+$diagonal4 = 1;
+
+for($i = 1; $i < $rings - 1; $i = $i + 2){
+	$zeroPoint1 = $zeroPoint1 + 8;
+	$zeroPoint2 = $zeroPoint2 + 8;
+	$zeroPoint3 = $zeroPoint3 + 8;
+	$zeroPoint4 = $zeroPoint4 + 8;
+	
+	$diagonal1 = $diagonal1 + $zeroPoint1;
+	$diagonal2 = $diagonal2 + $zeroPoint2;
+	$diagonal3 = $diagonal3 + $zeroPoint3;
+	$diagonal4 = $diagonal4 + $zeroPoint4;
+	
+	$sum = $sum + $diagonal1 + $diagonal2 + $diagonal3 + $diagonal4;
+	
+	echo "Lap:". ($i+1)/2 . "\n";
+	echo $diagonal1 . "\n";
+	echo $diagonal2 . "\n";
+	echo $diagonal3 . "\n";
+	echo $diagonal4 . "\n";
+	echo "----------\n";
+}
+$sum++;
+echo "Sum = " . $sum . "\n";
+
+
+?>
