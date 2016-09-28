@@ -1,9 +1,6 @@
 
 <?php 
-/*
- * Разбивает число на разряды и помещает из в массив, 
- * таким образом что каждый разряд находится в собственной ячейке;
- * */
+
 function parseInt($int){
 	(int)$millions = intval($int / 1000000);
 	(int)$hundreds_of_thousands = intval(($int % 1000000) / 100000);
@@ -38,9 +35,7 @@ function parseInt($int){
 	}
 	return $array;
 }
-/*
- * Возвращает количество символов в числе(в массиве А[]);
- * */
+
 function charAmount($A){
 	$rank_flag = 7;
 	
