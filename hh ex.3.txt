@@ -1,8 +1,5 @@
 <?php
 
-/*
- * Функция возвращает остаток от деления любого числа на 10
- */
 function my_bcmod( $x )
 {
 	$take = 5;
@@ -16,9 +13,7 @@ function my_bcmod( $x )
 	while ( strlen($x) );
 	return (int)$mod;
 }
-/*
- * Функция преобразут число в массив
- * */
+
 function convertToArray($num){
 	$len1 = strlen($num);
 	for($i = 0; $i < $len1 ; $i++){
@@ -27,21 +22,15 @@ function convertToArray($num){
 	}
 	return  $Array;
 }
-/*
- * Функция проверяет возможно ли из одного числа получить второе, и обратно 
- * перестановкой цифр.
- * Если операция прошла успешно функция возвращает true, иначе false.
- * */
+
 
 function checking($num1, $num2){
 	$A = convertToArray($num1);
 	$B = convertToArray($num2);
 	$return = true;
-//проверяем можно ли из первого числа получить второе
 	for($i = 0; $i < count($A); $i++){
 		$flag = false;
 		for($j = 0; $j < count($B); $j++){
-			//echo "A: " . $A[$i] . "     B: " . $B[$j] . "\n";
 			if($A[$i] == $B[$j]){
 				$flag = true;
 			}
@@ -50,12 +39,9 @@ function checking($num1, $num2){
 			$return = false;
 		}
 	}
-	//echo "\n";
-//проверяем можно ли из второги числа получить первое
 	for($i = 0; $i < count($B); $i++){
 		$flag = false;
 		for($j = 0; $j < count($A); $j++){
-			//echo "A: " . $B[$i] . "     B: " . $A[$j] . "\n";
 			if($B[$i] == $A[$j]){
 				$flag = true;
 			}
@@ -68,7 +54,7 @@ function checking($num1, $num2){
 }
 
 
-for($i = 1; $i < 999999; $i++){
+for($i = 1; $i < 99999999; $i++){
 	$firstNum = $i * 2;
 	$secondNum = $i * 6;
 	$flag = checking($firstNum, $secondNum);
